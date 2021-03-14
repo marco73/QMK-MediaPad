@@ -15,13 +15,16 @@
   */
 #pragma once
 
-#include "mediapad.h"
+#define "mediapad.h"
+#include "quantum.h"
 
-#define LAYOUT( \
-      k00, k01, k02, k03,   \
-      k04, k05, k06, k07     \
-) \
-{ \
-    { k00, k01, k02, k03 },  \
-    { k04, k05, k06, k07 }   \
+#define LAYOUT(              \
+      KA1, KA2, KA3, KA4,    \
+      KB1, KB2, KB3, KB4     \
+)                            \
+{                            \
+    { KA1, KA2, KA3, KA4 },  \
+    { KB1, KB2, KB3, KB4 }, \
 } 
+
+#endif
