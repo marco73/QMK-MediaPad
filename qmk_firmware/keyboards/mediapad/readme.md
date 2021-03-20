@@ -7,7 +7,7 @@ My mediapad, just to learn QMK consists of one encoder and 8 key switches
 * Keyboard Maintainer: [me](https://github.com/marco73)
 
 
-Make example for this keyboard (after setting up your build environment):
+Make example for this keyboard (after setting up your build environment and copying the "mediapad" folder from this repository in the qmk repository):
 
     make mediapad:default
 
