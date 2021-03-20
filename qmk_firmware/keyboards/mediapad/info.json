@@ -6,7 +6,7 @@
   "height": 2,
   "debounce": 5,
   "layouts": {
-    "LAYOUT_ortho_2x4": {
+    "LAYOUT": {
       "key_count": 8,
       "layout": [
         {"label":"1", "x":0, "y":0},
