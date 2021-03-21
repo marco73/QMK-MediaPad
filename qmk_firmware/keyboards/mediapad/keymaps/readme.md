@@ -1,7 +1,7 @@
-# bcat's BDN9 layout
+# My layout
 
-This is a simple macropad with seven keys and two rotary encoders. We use one
-encoder for volume and the other for backlight brightness. Six of the keys are
-F keys (for gaming, since I use keyboards without function keys normally), with
-the remaining key a layer toggle that switches the function keys between F1-F6
-and F7-F12.
+This is a simple macropad with eight keys and one rotary encoders and three layers
+
+[] Media - Media keys
+[] Numpad - Numpad keys
+[] Color - Change colors
