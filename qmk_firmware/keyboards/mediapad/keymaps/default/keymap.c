@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 
 void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
+    if (index == 0) {
         switch (biton32(layer_state)) {
             case _NUMPAD:
                 if (clockwise) {
@@ -26,10 +26,8 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                 break;
             case _COLOR:
                 if (clockwise) {
-                    //tap_code(RGB_VAI);
                     rgblight_decrease_val();
                 } else {
-                    //tap_code(RGB_VAD);
                     rgblight_increase_val();
                 }
                 break;
@@ -45,18 +43,18 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 
 
 // Set lighting accoording to Layer
-// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
 const rgblight_segment_t PROGMEM my_layer0_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 5, 24, 255, 60}        // Light 4 LEDs, starting with LED 0
+    { 1, 3, 240, 255, 60 },       // Light 3 LEDs, starting with LED 1
+    { 9, 3, 240, 255, 60 }        // Light 3 LEDs, starting with LED 9
 
 );
-// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 5, 120, 255, 60}
+    { 1, 3, 24, 255, 60},
+    { 9, 3, 24, 255, 60}
 );
-// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 5, 240, 255, 60}
+    { 1, 3, 120, 255, 60},
+    { 9, 3, 120, 255, 60}
 );
 
 // Now define the array of layers. Later layers take precedence
@@ -69,8 +67,8 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 void keyboard_post_init_user(void) {
   wait_ms(100);
   rgblight_enable_noeeprom();
-  rgblight_sethsv_noeeprom(0, 255, 30);
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
+  rgblight_sethsv_noeeprom(45, 254, 30);
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_SNAKE + 1);
   // Enable the LED layers
   rgblight_layers = my_rgb_layers;
 }
