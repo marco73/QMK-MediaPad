@@ -9,9 +9,9 @@
 #define _COLOR 2
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_MEDIA] = LAYOUT_ortho_2x4(KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_NO, KC_NO, RESET, RGB_TOG, TO(1) ),
+    [_MEDIA] = LAYOUT_ortho_2x4(KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_MFFD, KC_MRWD, RESET, RGB_TOG, TO(1) ),
     [_NUMPAD] = LAYOUT_ortho_2x4(KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_7, KC_KP_8, TO(2) ),
-    [_COLOR] = LAYOUT_ortho_2x4(RGB_TOG, RGB_MOD, RGB_RMOD, RGB_M_P, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, TO(0) )
+    [_COLOR] = LAYOUT_ortho_2x4(RGB_TOG, RGB_RMOD, RGB_MOD, RGB_M_P, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, TO(0) )
     };
 
 void encoder_update_user(uint8_t index, bool clockwise) {
@@ -19,25 +19,25 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         switch (biton32(layer_state)) {
             case _NUMPAD:
                 if (clockwise) {
-                    tap_code(KC_VOLU);
-                } else {
                     tap_code(KC_VOLD);
+                } else {
+                    tap_code(KC_VOLU);
                 }
                 break;
             case _COLOR:
                 if (clockwise) {
                     //tap_code(RGB_VAI);
-                    rgblight_increase_val();
+                    rgblight_decrease_val();
                 } else {
                     //tap_code(RGB_VAD);
-                    rgblight_decrease_val();
+                    rgblight_increase_val();
                 }
                 break;
             default:
                 if (clockwise) {
-                    tap_code(KC_VOLU);
-                } else {
                     tap_code(KC_VOLD);
+                } else {
+                    tap_code(KC_VOLU);
                 }
         }
     }
