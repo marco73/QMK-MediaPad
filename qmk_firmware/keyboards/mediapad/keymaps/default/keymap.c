@@ -1,23 +1,23 @@
 #include QMK_KEYBOARD_H
 
-
 /**
  * Layer Names
  */
 #define _MEDIA 0
-#define _NUMPAD 1
+#define _SQUAD 1
 #define _COLOR 2
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MEDIA] = LAYOUT_ortho_2x4(KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_MFFD, KC_MRWD, RESET, RGB_TOG, TO(1) ),
-    [_NUMPAD] = LAYOUT_ortho_2x4(KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_7, KC_KP_8, TO(2) ),
+    [_SQUAD] = LAYOUT_ortho_2x4(KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24, TO(2) ),
     [_COLOR] = LAYOUT_ortho_2x4(RGB_TOG, RGB_RMOD, RGB_MOD, RGB_M_P, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, TO(0) )
     };
 
+// Configure the encoder behaviour on layer
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         switch (biton32(layer_state)) {
-            case _NUMPAD:
+            case _SQUAD:
                 if (clockwise) {
                     tap_code(KC_VOLD);
                 } else {
@@ -41,20 +41,19 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     }
 }
 
-
 // Set lighting accoording to Layer
 const rgblight_segment_t PROGMEM my_layer0_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 1, 3, 240, 255, 60 },       // Light 3 LEDs, starting with LED 1
-    { 9, 3, 240, 255, 60 }        // Light 3 LEDs, starting with LED 9
+    { 0, 3, 240, 255, 60 },       // Light 3 LEDs, starting with LED 1
+    { 8, 3, 240, 255, 60 }        // Light 3 LEDs, starting with LED 9
 
 );
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 1, 3, 24, 255, 60},
-    { 9, 3, 24, 255, 60}
+    { 0, 3, 24, 255, 60},
+    { 8, 3, 24, 255, 60}
 );
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 1, 3, 120, 255, 60},
-    { 9, 3, 120, 255, 60}
+    { 0, 3, 120, 255, 60},
+    { 8, 3, 120, 255, 60}
 );
 
 // Now define the array of layers. Later layers take precedence
@@ -79,7 +78,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(1, layer_state_cmp(state, _NUMPAD));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _SQUAD));
     rgblight_set_layer_state(2, layer_state_cmp(state, _COLOR));
     return state;
 }

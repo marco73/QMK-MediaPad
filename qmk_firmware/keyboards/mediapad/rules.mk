@@ -26,5 +26,6 @@ AUDIO_ENABLE = no           # Audio output
 DIP_SWITCH_ENABLE = no
 ENCODER_ENABLE = yes
 TAP_DANCE_ENABLE = no
+COMBO_ENABLE = no
 
 LAYOUTS = ortho_2x4

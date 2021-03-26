@@ -50,12 +50,15 @@
 // RGB definition
 #define RGB_DI_PIN B9
 #define RGBLED_NUM 16
-#define RGBLIGHT_LED_MAP { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0}
+#define RGBLIGHT_LED_MAP { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
 #define RGBLIGHT_DEFAULT_VAL 24
 #define RGBLIGHT_LIMIT_VAL 128
 #define RGBLIGHT_VAL_STEP 8
 #define RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_LAYERS
+
+// Combo keyes are used to change into reset mode to update the firmware
+// #define COMBO_COUNT 3
 
 // Connects each switch in the dip switch to the GPIO pin of the MCU
 // #define DIP_SWITCH_PINS { B5 }
